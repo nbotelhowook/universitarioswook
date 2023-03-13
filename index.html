@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>WOOK procuras</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<style>
+
+    h1 {
+        font-family: 'BryantProLight', sans-serif;
+	font-size: 58px;
+
+    }
+
+    h2 {
+        font-family: 'BryantProRegular', sans-serif;
+	font-size: 32px;
+
+    }
+    h2 b {
+        font-family: 'BryantProBold', sans-serif;
+	font-size: 32px;
+
+    }
+
+    li {
+        text-align: center;
+    }
+   
+
+</style>
+<body>
+
+    <div class="container center">
+        <div class="logo">
+            <img class="img-responsive" src="https://www.wook.pt/public/images/header-01-B.png" width="200" height="48"> 
+        </div>
+
+       <!-- <div class="col-xs-12" style="text-align: center;  width: 100%; color: white;">
+            <h1>livros universitários <b><br class="hidden-lg">até 50%</b></h1>
+        </div>-->
+
+        <div class="col-xs-12" style="text-align: center;  width: 100%;">
+            <h2>Põe a tua memória à prova<br>
+                <b>Encontra os pares românticos da literatura<br></b>
+                Joga e diverte-te!</h2>
+        </div>
+       
+        
+        <section class="score-panel">
+        	<ul class="stars">
+        		<li><i class="fa fa-star"></i></li>
+        		<li><i class="fa fa-star"></i></li>
+        		<li><i class="fa fa-star"></i></li>
+        	</ul>
+
+        	<span class="moves">0</span> Jogada(s)
+
+            <div class="timer">
+            </div>
+
+            <div class="restart" onclick=startGame()>
+        		<i class="fa fa-repeat"></i>
+        	</div>
+        </section>
+
+        <ul class="deck" id="card-deck">
+            <li class="card hide" type="TristaoIsolda">
+                <i class="fa">Tristão</i>
+            </li>
+            <li class="card hide" type="TristaoIsolda">
+                <i class="fa">Isolda</i>
+            </li>
+            <li class="card hide" type="RomeuJulieta">
+                <i class="fa">Romeu</i>
+            </li>
+            <li class="card hide" type="RomeuJulieta" >
+                <i class="fa">Julieta</i>
+            </li>
+            <li class="card hide" type="CarlosMaiaEduarda">
+                <i class="fa">Carlos Maia</i>
+            </li>
+            <li class="card hide" type="CarlosMaiaEduarda">
+                <i class="fa">Eduarda</i>
+            </li>
+            <li class="card hide" type="SimaoBotelhoTeresaDeAlbuquerque">
+                <i class="fa">Simão Botelho</i>
+            </li>
+            <li class="card hide" type="SimaoBotelhoTeresaDeAlbuquerque">
+                <i class="fa">Teresa de Albuquerque</i>
+            </li>
+            <li class="card hide" type="AnastaciaChristianGrey">
+                <i class="fa">Anastacia</i>
+            </li>
+            <li class="card hide" type="AnastaciaChristianGrey">
+                <i class="fa">Christian Grey</i>
+            </li>
+            <li class="card hide" type="OfeliaHamlet">
+                <i class="fa">Ofélia</i>
+            </li>
+            <li class="card hide" type="OfeliaHamlet">
+                <i class="fa">Hamlet</i>
+            </li>
+            <li class="card hide" type="RheetScarlett">
+                <i class="fa">Rhett Butler</i>
+            </li>
+            <li class="card hide" type="RheetScarlett">
+                <i class="fa">Scarlett O'Hara</i>
+            </li>
+            <li class="card hide" type="RonHermione">
+                <i class="fa">Ron</i>
+            </li>
+            <li class="card hide" type="RonHermione">
+                <i class="fa">Hermione</i>
+            </li>
+            <li class="card hide" type="PeetaKatniss">
+                <i class="fa">Peeta</i>
+            </li>
+            <li class="card hide" type="PeetaKatniss">
+                <i class="fa">Katniss</i>
+            </li>
+            <li class="card hide" type="BridgetMark">
+                <i class="fa">Bridget Jones</i>
+            </li>
+            <li class="card hide" type="BridgetMark">
+                <i class="fa">Mark Darcy</i>
+            </li>
+            <li class="card hide" type="EmmaKnightley">
+                <i class="fa">Emma</i>
+            </li>
+            <li class="card hide" type="EmmaKnightley">
+                <i class="fa">Mr. Knightley</i>
+            </li>
+            <li class="card hide" type="AmaroAmelia">
+                <i class="fa">Amaro</i>
+            </li>
+            <li class="card hide" type="AmaroAmelia">
+                <i class="fa">Amélia</i>
+            </li>
+            <li class="card hide" type="EuricoHermengarda">
+                <i class="fa">Eurico</i>
+            </li>
+            <li class="card hide" type="EuricoHermengarda">
+                <i class="fa">Hermengarda</i>
+            </li>
+            <li class="card hide" type="AtlasLily">
+                <i class="fa">Atlas</i>
+            </li>
+            <li class="card hide" type="AtlasLily">
+                <i class="fa">Lily</i>
+            </li>
+            <li class="card hide" type="EdwardBella">
+                <i class="fa">Edward</i>
+            </li>
+            <li class="card hide" type="EdwardBella">
+                <i class="fa">Bella</i>
+            </li>
+            <li class="card hide" type="DrogoDaenerys">
+                <i class="fa">Khal Drogo</i>
+            </li>
+            <li class="card hide" type="DrogoDaenerys">
+                <i class="fa">Daenerys</i>
+            </li>
+            <li class="card hide" type="PedroInes">
+                <i class="fa">Pedro</i>
+            </li>
+            <li class="card hide" type="PedroInes">
+                <i class="fa">Inês</i>
+            </li>
+            <li class="card hide" type="PenelopeUlisses">
+                <i class="fa">Penélope</i>
+            </li>
+            <li class="card hide" type="PenelopeUlisses">
+                <i class="fa">Ulisses</i>
+            </li>
+            <li class="card hide" type="ElizabethMisterDarcy">
+                <i class="fa">Elizabeth</i>
+            </li>
+            <li class="card hide" type="ElizabethMisterDarcy">
+                <i class="fa">Mister Darcy</i>
+            </li>
+            <li class="card hide" type="CatherineEarnshawHeathcliff">
+                <i class="fa">Catherine Earnshaw</i>
+            </li>
+            <li class="card hide" type="CatherineEarnshawHeathcliff">
+                <i class="fa">Heathcliff</i>
+            </li>
+            <li class="card hide" type="JayGatsbyDaisy">
+                <i class="fa">Jay Gatsby</i>
+            </li>
+            <li class="card hide" type="JayGatsbyDaisy">
+                <i class="fa">Daisy</i>
+            </li>
+            <li class="card hide" type="BaltazarBlimunda">
+                <i class="fa">Baltazar</i>
+            </li>
+            <li class="card hide" type="BaltazarBlimunda">
+                <i class="fa">Blimunda</i>
+            </li>
+            <li class="card hide" type="LuisaBasilio">
+                <i class="fa">Luísa</i>
+            </li>
+            <li class="card hide" type="LuisaBasilio">
+                <i class="fa">Basílio</i>
+            </li>
+            <li class="card hide" type="DQuixoteDulcineia">
+                <i class="fa">D. Quixote</i>
+            </li>
+            <li class="card hide" type="DQuixoteDulcineia">
+                <i class="fa">Dulcineia</i>
+            </li>
+            <li class="card hide" type="ElioOliver">
+                <i class="fa">Elio</i>
+            </li>
+            <li class="card hide" type="ElioOliver">
+                <i class="fa">Oliver</i>
+            </li>
+       
+        </ul>
+
+        <div id="popup1" class="overlay" style="color: #333333; 	text-shadow: none;">
+            <div class="popup">
+                <h2>Parabéns 🎉</h2>
+                <a class="close" href=# >×</a>
+                <div class="content-1">
+                 Parabéns! És um vencedor 🎉🎉🎉
+                </div>
+                <div class="content-2">
+                    <p>Tu fizeste <span id=finalMove> </span> Jogadas </p>
+                    <p>em <span id=totalTime> </span> </p>
+                    <p>Rating:  <span id=starRating></span></p>
+                </div>
+                <button id="play-again"onclick="playAgain()">
+                    Jogar de novo 😄</a>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
